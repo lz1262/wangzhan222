@@ -1,4 +1,5 @@
-<!DOCTYPE html>
+User
+“<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -39,12 +40,6 @@
             bottom: 0;
             width: 100%;
         }
-        #chatbox {
-            width: 100%;
-            height: 100%;
-            min-height: 700px;
-            overflow: auto; /* 添加 overflow 属性 */
-        }
     </style>
 </head>
 <body>
@@ -59,46 +54,15 @@
     <section>
         <h2>关于我们</h2>
         <p>接下来将为您进行简单的认知诊断.</p>
-        <div id="chatbox"></div> <!-- 创建一个用于显示对话的 div 元素 -->
+ <iframe
+ src="https://udify.app/chatbot/q2Pu8XXO1b8Z3Pfh"
+ style="width: 100%; height: 100%; min-height: 700px"
+ frameborder="0"
+ allow="microphone">
+</iframe>
     </section>
     <footer>
         <p>&copy; 2024 My Website. All rights reserved.</p>
     </footer>
-    
-    <script>
-        // 使用 JavaScript 调用 API 并将返回的内容显示在页面上
-        window.onload = function() {
-            var chatbox = document.getElementById("chatbox");
-
-            // 调用 API 的 URL
-            var apiUrl = "https://api.dify.ai/v1";
-            var apiKey = "app-cZj3WwrDZeOOKPiKKmUhrTLk";
-
-            // 构造 API 请求体
-            var requestData = {
-                query: "你好", // 示例用户输入内容
-                user: "user123" // 示例用户标识
-                // 可添加其他参数
-            };
-
-            // 使用 fetch 方法调用 API，并添加 API 密钥到请求头
-            fetch(apiUrl, {
-                method: 'POST',
-                headers: {
-                    'Authorization': 'Bearer ' + apiKey,
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(requestData) // 将请求体转换为 JSON 字符串
-            })
-            .then(response => response.json())
-            .then(data => {
-                // 将返回的内容显示在 chatbox 中
-                chatbox.innerHTML = data.answer; // 示例假设 API 返回的内容在 answer 字段中
-            })
-            .catch(error => {
-                console.error('Error:', error);
-            });
-        };
-    </script>
 </body>
-</html>
+</html>””

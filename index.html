@@ -29,9 +29,6 @@
         }
         section {
             padding: 20px;
-            display: flex;
-            justify-content: center; /* 水平居中 */
-            align-items: center; /* 垂直居中 */
         }
         footer {
             background-color: #333;
@@ -77,17 +74,26 @@
             var apiUrl = "https://api.dify.ai/v1";
             var apiKey = "app-cZj3WwrDZeOOKPiKKmUhrTLk";
 
+            // 构造 API 请求体
+            var requestData = {
+                query: "你好", // 示例用户输入内容
+                user: "user123" // 示例用户标识
+                // 可添加其他参数
+            };
+
             // 使用 fetch 方法调用 API，并添加 API 密钥到请求头
             fetch(apiUrl, {
-                method: 'GET',
+                method: 'POST',
                 headers: {
-                    'Authorization': 'Bearer ' + apiKey
-                }
+                    'Authorization': 'Bearer ' + apiKey,
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(requestData) // 将请求体转换为 JSON 字符串
             })
             .then(response => response.json())
             .then(data => {
                 // 将返回的内容显示在 chatbox 中
-                chatbox.innerHTML = data.content;
+                chatbox.innerHTML = data.answer; // 示例假设 API 返回的内容在 answer 字段中
             })
             .catch(error => {
                 console.error('Error:', error);
